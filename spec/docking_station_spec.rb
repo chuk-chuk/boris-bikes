@@ -4,8 +4,19 @@ describe DockingStation do
   it {is_expected.to respond_to(:release_bike) }
 
   it "release a bike and then expects the bike to be working" do
-    new_bike = subject.release_bike
-    expect(new_bike).to be_working
+    bike = subject.release_bike
+    expect(bike).to be_working
   end
+
+  it {is_expected.to respond_to(:dock).with(1).argument}
+
+  it "returns docked bikes" do
+    bike = Bike.new
+    subject.dock(bike)
+    #we want to return the bike to the dock
+    expect(subject.dock(bike)).to eq bike
+  end
+
+  it {is_expected.to respond_to(:bike)}
 
 end
