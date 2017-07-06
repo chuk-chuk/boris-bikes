@@ -9,10 +9,14 @@ class DockingStation
     @bike
   end
 
-  def dock(bike) # setter method
-  #Use an instance variable to store the bike
-  # in the 'state' of this instance
+  def dock_bike(bike)
+    fail "Station full" if @bike
     @bike = bike
   end
-
 end
+
+# station = DockingStation.new
+# bike= Bike.new
+# station.release_bike
+# station.dock_bike(bike)
+# station.dock_bike(bike)

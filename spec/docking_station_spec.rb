@@ -8,23 +8,28 @@ describe DockingStation do
     # 2. releasea bike
     # 3. make an assertion on that bike
     bike = Bike.new
-    subject.dock(bike)
+    subject.dock_bike(bike)
     subject.release_bike
     expect(bike).to be_working
   end
 
-  it {is_expected.to respond_to(:dock).with(1).argument}
+  it {is_expected.to respond_to(:dock_bike).with(1).argument}
 
   describe '#release_bike' do
     it "returns bikes" do
       bike = Bike.new
-      subject.dock(bike)
       #we want to return the bike to the dock
-      expect(subject.dock(bike)).to eq bike
+      expect(subject.dock_bike(bike)).to eq bike
     end
 
     it "should raise an error if no bikes available" do
       expect {subject.release_bike}.to raise_error "No bikes available"
+    end
+
+    it "should raise an error if station full" do
+      bike = Bike.new
+      subject.dock_bike(bike)
+      expect {subject.dock_bike(bike)}.to raise_error "Station full"
     end
   end
 
