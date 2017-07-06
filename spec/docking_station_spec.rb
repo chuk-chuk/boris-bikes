@@ -14,6 +14,7 @@ describe DockingStation do
 
   describe '#release_bike' do
     it "should raise an error if no bikes available" do
+      station.dock_bike
       station.release_bike
       expect {station.release_bike}.to raise_error "No bikes available"
     end
@@ -21,16 +22,17 @@ describe DockingStation do
 
   describe '#dock_bike' do
     it "returns bikes" do
-      # bikes = []
+      # what is the return value of station.bikes 1
       station.dock_bike
-      expect(station.bikes.size == 1).to be false
+      # what is the return value of station.bikes 2
+      expect(station.bikes.size).to eq 1
     end
 
     it {is_expected.to respond_to(:dock_bike)}
 
     it "should raise an error if station full" do
       # Bike.new(bikes)
-      19.times {station.dock_bike}
+      DEFAULT_CAPACITY.times {station.dock_bike}
       expect {station.dock_bike}.to raise_error "Station full"
     end
   end
