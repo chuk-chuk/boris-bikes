@@ -5,6 +5,13 @@ describe DockingStation do
 
   it {is_expected.to respond_to(:release_bike) }
 
+  it {is_expected.to respond_to(:capacity) }
+
+  it "should return default capacity 20 when no parameters are passed" do
+    expect(station.capacity).to eq 20
+  end
+
+
   it "release a bike and then expects the bike to be working" do
     station.dock_bike
     bike = station.release_bike
