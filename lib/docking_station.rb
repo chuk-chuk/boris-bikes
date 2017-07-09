@@ -1,7 +1,9 @@
-DEFAULT_CAPACITY = 20
+require_relative 'bike'
+
 class DockingStation
 
   attr_accessor :bikes, :capacity
+  DEFAULT_CAPACITY = 20
 
   def initialize(bikes = [], capacity = DEFAULT_CAPACITY)
     @bikes = bikes
@@ -27,14 +29,3 @@ class DockingStation
     @bikes.count == DEFAULT_CAPACITY
   end
 end
-
-class Bike
-  def working?
-    true
-  end
-end
-
-# station = DockingStation.new
-# station.release_bike
-# station.dock_bike(bike)
-# station.dock_bike(bike)

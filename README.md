@@ -2,15 +2,11 @@
 
 **Hire bikes in London with Santander Cycles**
 
-**Collaborators:** chuk-chuk & Midge's pair up
+**Collaborators:** Yulia, Michael, Antoine, James
 
-## Getting started
- to be completed . not really because i cant be bothered
+### What it Does
+Program to emulate the plan to introduce Boris Bikes into London
 
-## Usage
+### Running tests
 
-to be completed same here
-
-## Running tests
-
-to be completed and here
+run `rspec`
